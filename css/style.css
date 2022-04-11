@@ -1,4 +1,7 @@
-@import url("http://fonts.cdnfonts.com/css/nickainley");
+
+@import url('http://fonts.cdnfonts.com/css/nickainley?styles=25969');
+
+
 * {
   box-sizing: border-box;
 }
