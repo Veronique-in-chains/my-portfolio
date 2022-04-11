@@ -1,0 +1,87 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: black;
+  color: silver;
+  font-family: "Raleway", sans-serif;
+}
+
+.top {
+  background-image: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("/images/brick_bg.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.nav {
+  &__checkbox {
+    position: absolute;
+    left: -9999px;
+    &:checked ~ .nav__list {
+      @media screen and (max-width: 539px) {
+        display: block;
+        padding: 0;
+        position: absolute;
+        width: 100%;
+        background-color:rgba(0, 0, 0, 0.7);
+        margin: 0;
+      }
+    }
+  }
+  &__toggler {
+    display: block;
+    text-align: right;
+    @media screen and (min-width: 540px) {
+      display: none;
+    }
+    .hamburger {
+      padding: 15px;
+      stroke: #ffffff;
+    }
+  }
+  &__list {
+    display: none;
+    @media screen and (min-width: 540px) {
+      display: flex;
+      justify-content: space-around;
+      padding: 0;
+      margin: 0;
+    }
+  }
+  &__item {
+    display: block;
+    text-align: center;
+    padding: 5px;
+    a {
+      text-decoration: none;
+      color: #ffffff;
+    }
+  }
+}
+
+
+h1 {
+  text-align: center;
+  font-family: 'nickainley', sans-serif;
+  font-size: 100px;
+  font-weight: 100;
+  color: #ffffff;
+  margin: 0;
+  padding-top: 100px;
+  @media screen and (min-width: 768px) {
+    font-size: 160px;
+  }
+}
+
+h2 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  text-align: center;
+  padding-bottom: 50px;
+}
