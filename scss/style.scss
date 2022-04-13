@@ -146,7 +146,7 @@ h3 {
 
 p {
   line-height: 2;
-  padding: 30px 0;
+  padding: 30px 0 0 0;
   margin: 0;
 }
 
@@ -168,7 +168,20 @@ p {
     a {
       color: silver;
       text-decoration: none;
-
+    }
+    .button {
+      display: inline-block;
+      padding: 10px 30px;
+      background-color: black;
+      border: 1px solid rgb(232, 108, 188);
+      transition: all ease-out 0.7s;
+      &__container {
+        text-align: center;
+        margin-top: 50px;
+      }
+      &:hover {
+        border-color: silver;
+      }
     }
   }
   .list {
