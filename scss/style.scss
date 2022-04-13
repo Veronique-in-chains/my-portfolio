@@ -36,7 +36,12 @@ body {
   justify-content: space-between;
   z-index: 2;
   &__logo {
+    fill: silver;
     padding: 10px 20px;
+    transition: fill ease-out 0.8s;
+    &:hover {
+      fill:rgb(232, 108, 188);
+    }
   }
   &__list {
     position: absolute;
@@ -248,6 +253,10 @@ p {
 
 .center {
   text-align: center;
+  a {
+    color: silver;
+    transition: color ease 0.6s;
+  }
   a:hover {
     color: rgb(232, 108, 188);
   }
@@ -259,6 +268,8 @@ p {
   align-items: center;
   svg {
     margin: 20px;
+    fill: silver;
+    transition: fill ease-out 0.8s;
     &:hover {
       fill: rgb(232, 108, 188);
     }

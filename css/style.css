@@ -35,7 +35,12 @@ body {
   z-index: 2;
 }
 .nav__logo {
+  fill: silver;
   padding: 10px 20px;
+  transition: fill ease-out 0.8s;
+}
+.nav__logo:hover {
+  fill: rgb(232, 108, 188);
 }
 .nav__list {
   position: absolute;
@@ -259,6 +264,10 @@ p {
 .center {
   text-align: center;
 }
+.center a {
+  color: silver;
+  transition: color ease 0.6s;
+}
 .center a:hover {
   color: rgb(232, 108, 188);
 }
@@ -270,6 +279,8 @@ p {
 }
 .social svg {
   margin: 20px;
+  fill: silver;
+  transition: fill ease-out 0.8s;
 }
 .social svg:hover {
   fill: rgb(232, 108, 188);
