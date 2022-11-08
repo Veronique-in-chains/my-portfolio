@@ -163,15 +163,36 @@ p {
   margin: 0;
 }
 
+a {
+  color: silver;
+  text-decoration: none;
+}
+
 .section {
   padding: 100px 30px;
   min-height: 100vh;
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 650px) {
   .section {
     display: flex;
     align-items: center;
     padding: 100px 150px;
+  }
+}
+.section__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  min-height: 100vh;
+}
+.section.about {
+  display: block;
+  min-height: 0;
+}
+@media screen and (min-width: 650px) {
+  .section.about {
+    padding: 0 150px;
   }
 }
 .section h3 {
@@ -179,26 +200,41 @@ p {
   align-items: flex-start;
   margin: 0;
 }
+@media screen and (min-width: 650px) {
+  .section .flex {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}
+.section .flex.btn {
+  min-width: 100%;
+}
 .section .content {
   flex: 1 0 65%;
 }
-.section .content a {
-  color: silver;
-  text-decoration: none;
+.section .left {
+  flex: 0 1 35%;
 }
-.section .content .button {
+.section .button {
   display: inline-block;
   padding: 10px 30px;
   background-color: black;
   border: 1px solid rgb(232, 108, 188);
   transition: all ease-out 0.7s;
+  text-decoration: none;
+  color: silver;
 }
-.section .content .button__container {
-  text-align: center;
+.section .button__container {
+  text-align: left;
   margin-top: 50px;
+  flex: 1 0 65%;
 }
-.section .content .button:hover {
+.section .button:hover {
   border-color: silver;
+}
+.section .button:visited {
+  color: silver;
 }
 .section .list {
   list-style: none;
@@ -231,7 +267,7 @@ p {
 .item__overlay {
   padding: 10px;
 }
-@media screen and (min-width: 650px) {
+@media screen and (min-width: 1000px) {
   .item__overlay {
     padding: 30px;
     opacity: 0;
