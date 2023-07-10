@@ -27,7 +27,7 @@ const App = () => {
         github="https://github.com/Veronique-in-chains"
       />
     </main>
-    <footer className="footer">&copy; Veronika Bosáková, 2023</footer>
+
     </>
   );
 };

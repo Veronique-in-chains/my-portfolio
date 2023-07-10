@@ -8,16 +8,24 @@ const Nav = () => {
     setHamburgerOpen(!hamburgerOpen)
   };
 
-  const [scroll, setScroll] = useState(false);
+
+  const [shadow, setShadow] = useState(null);
+  const handleScroll = () => {
+    const scrollPosition = document.querySelector("#app").scrollTop;
+    console.log(scrollPosition);
+    setShadow(scrollPosition);
+  };
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      setScroll(window.scrollY > 0);
-    });
+    handleScroll();
+    document.querySelector("#app").addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
     <>
-      <nav className={scroll ? "nav" : "nav scrolled"}>
+      <nav id="nav" className={shadow > 0 ? "nav scrolled" : "nav"}>
         <div className="nav__logo">
           <a href="#">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="30" fill="silver">
@@ -48,7 +56,7 @@ const Nav = () => {
           <div className={hamburgerOpen ? "bar3 change" : "bar3"}></div>
         </div>
       </nav>
-      <style jsx> 
+      <style> 
         {`
         @media screen and (max-width: 649px) {
           .nav__list {
