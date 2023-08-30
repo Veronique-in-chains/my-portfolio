@@ -19,12 +19,16 @@ body {
 }
 
 #app {
-  width: 100%;
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
   position: relative;
+}
+@media screen and (min-width: 800px) {
+  #app {
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+  }
 }
 
 .top {
@@ -186,14 +190,13 @@ a {
 
 .section {
   padding: 100px 30px;
-  height: 100vh;
-  scroll-snap-align: start;
+  min-height: 100vh;
 }
 @media screen and (min-width: 800px) {
   .section {
+    height: 100vh;
     display: flex;
     align-items: center;
-    padding: 100px 150px;
     scroll-snap-align: center;
   }
 }
@@ -210,10 +213,15 @@ a {
 }
 @media screen and (min-width: 800px) {
   .section.about {
-    padding: 0 150px;
+    padding: 0 30px;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .section.about {
+    padding: 0 150px;
   }
 }
 .section h3 {
@@ -237,9 +245,15 @@ a {
   }
 }
 .section .content.portfolio {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
+  display: grid;
+  grid-template-columns: auto;
+  gap: 25px;
+}
+@media screen and (min-width: 800px) {
+  .section .content.portfolio {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
 }
 .section .left {
   flex: 0 1 35%;
@@ -278,15 +292,10 @@ a {
   color: silver;
 }
 
-.item {
-  height: 100%;
-  width: 250px;
-}
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 800px) {
   .item {
     position: relative;
     height: auto;
-    background-color: none;
   }
 }
 .item a {
@@ -294,7 +303,7 @@ a {
   flex-direction: column;
   align-content: stretch;
 }
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 800px) {
   .item a {
     display: block;
   }
@@ -307,25 +316,29 @@ a {
   display: block;
 }
 .item__overlay {
-  display: none;
-  padding: 0 50px;
+  padding: 5px;
   font-size: 0.8em;
+  background-color: #222222;
 }
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 800px) {
   .item__overlay {
-    padding: 25px;
+    opacity: 0;
+    padding: 20px;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 1;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.7);
     transition: opacity ease 0.5s;
   }
 }
 .item__overlay p {
   padding: 0;
+}
+.item:hover .item__overlay {
+  opacity: 1;
 }
 
 .contact {

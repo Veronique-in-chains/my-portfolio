@@ -9,15 +9,18 @@ const Nav = () => {
   };
 
 
-  const [shadow, setShadow] = useState(null);
+  const [mobileShadow, setMobileShadow] = useState(null);
+  const [desktopShadow, setDesktopShadow] = useState(null);
   const handleScroll = () => {
     const scrollPosition = document.querySelector("#app").scrollTop;
-    console.log(scrollPosition);
-    setShadow(scrollPosition);
+    const mobileScrollPosition = window.scrollY;
+    setDesktopShadow(scrollPosition);
+    setMobileShadow(mobileScrollPosition);
   };
   useEffect(() => {
     handleScroll();
     document.querySelector("#app").addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -25,7 +28,7 @@ const Nav = () => {
 
   return (
     <>
-      <nav id="nav" className={shadow > 0 ? "nav scrolled" : "nav"}>
+      <nav id="nav" className={mobileShadow || desktopShadow > 0 ? "nav scrolled" : "nav"}>
         <div className="nav__logo">
           <a href="#">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="30" fill="silver">

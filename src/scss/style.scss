@@ -20,11 +20,14 @@ body {
 }
 
 #app {
-  width: 100%;
-  height: 100vh;
-  overflow-y: scroll; 
-  scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
+  @media screen and (min-width: 800px) {
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll; 
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+  }
+
   position: relative;
 }
 
@@ -179,12 +182,11 @@ a {
 
 .section {
   padding: 100px 30px;
-  height: 100vh;
-  scroll-snap-align: start;
+  min-height: 100vh;
   @media screen and (min-width: 800px) {
+    height: 100vh;
     display: flex;
     align-items: center;
-    padding: 100px 150px;
     scroll-snap-align: center;
   }
   &__wrapper {
@@ -198,10 +200,13 @@ a {
     display: block;
     min-height: 100vh;
     @media screen and (min-width: 800px) {
-      padding: 0 150px;
+      padding: 0 30px;
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+    @media screen and (min-width: 1400px) {
+      padding: 0 150px;
     }
   }
   h3 {
@@ -222,9 +227,13 @@ a {
       width: 65%;
     }
     &.portfolio {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
+      display: grid;
+      grid-template-columns: auto;
+      gap: 25px;
+      @media screen and (min-width: 800px) {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+      }
     }
   }
   .left {
@@ -267,20 +276,15 @@ a {
 }
 
 .item {
-  height: 100%;
-  width: 250px;
-  @media screen and (min-width: 1000px) {
-    // width: 300px;
+  @media screen and (min-width: 800px) {
     position: relative;
     height: auto;
-    background-color: none;
-
   }
   a {
     display: flex;
     flex-direction: column;
     align-content: stretch;
-    @media screen and (min-width: 1000px) {
+    @media screen and (min-width: 800px) {
       display: block;
     }
     &:hover .item__overlay {
@@ -292,23 +296,27 @@ a {
     display: block;
   }
   &__overlay {
-    display: none;
-    padding: 0 50px;
+    padding: 5px;
     font-size: 0.8em;
-    @media screen and (min-width: 1000px) {
-      padding: 25px;
+    background-color: #222222;
+    @media screen and (min-width: 800px) {
+      opacity: 0;
+      padding: 20px;
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       z-index: 1;
-      background-color:rgba(0, 0, 0, 0.6);
+      background-color:rgba(0, 0, 0, 0.7);
       transition: opacity ease 0.5s;
     }
     p {
       padding: 0;
     }
+  }
+  &:hover .item__overlay {
+    opacity: 1;
   }
 }
 
