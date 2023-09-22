@@ -194,6 +194,7 @@ a {
 }
 @media screen and (min-width: 800px) {
   .section {
+    padding: 100px 150px;
     height: 100vh;
     display: flex;
     align-items: center;

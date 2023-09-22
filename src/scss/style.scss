@@ -184,6 +184,7 @@ a {
   padding: 100px 30px;
   min-height: 100vh;
   @media screen and (min-width: 800px) {
+    padding: 100px 150px;
     height: 100vh;
     display: flex;
     align-items: center;
